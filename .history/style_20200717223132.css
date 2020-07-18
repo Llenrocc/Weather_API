@@ -1,0 +1,11 @@
+.header {
+    padding-top: 2%;
+    text-align: center;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 4rem;
+    background-image: url(Assets/air-atmosphere-blue-blue-sky-314726.jpg);
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: center;
+}
+

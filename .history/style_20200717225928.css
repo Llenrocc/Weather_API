@@ -1,0 +1,25 @@
+.body {
+    background-image: url(Assets/lightning-and-gray-clouds-1162251.jpg);
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: center fixed;
+    background-size: cover;
+}
+
+.header {
+    padding-top: 2%;
+    text-align: center;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 4rem;
+    background-image: url(Assets/air-atmosphere-blue-blue-sky-314726.jpg);
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: center fixed;
+    background-size: cover;
+}
+
+@media only screen and (min-width: 1200px) {
+    /* styles for wide screens */
+}
+
+

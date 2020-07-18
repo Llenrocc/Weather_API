@@ -1,0 +1,9 @@
+.header {
+    padding-top: 2%;
+    text-align: center;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 4rem;
+    background-image: url(Assets/sea-of-clouds-sunrise-wallpaper-2086748.jpg);
+    background: cover;
+}
+
