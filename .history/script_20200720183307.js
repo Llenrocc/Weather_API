@@ -1,7 +1,7 @@
 // Creating all variables/Elements
 
 function initPage() {
-    
+
     const inputEl = document.getElementById("city-input");
     const searchEl = document.getElementById("search-button");
     const clearEl = document.getElementById("clear-history");
@@ -82,7 +82,7 @@ function initPage() {
     const forecastEls = document.querySelectorAll(".forecast");
     for (i = 0; i < forecastEls.length; i++) {
         forecastEls[i].innerHTML = "";
-        const forecastIndex = i * 8 + 4;
+        const forecastIndex = i*8 + 4;
         const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
         const forecastDay = forecastDate.getDate();
         const forecastMonth = forecastDate.getMonth() + 1;
@@ -121,11 +121,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-});
+})
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        });
+        })
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);

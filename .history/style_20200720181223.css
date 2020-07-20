@@ -1,5 +1,11 @@
+.body {
+    background: url("Assets/light-sea-dawn-landscape-33545.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+
 .navbar-brand {
-    font-size: 40px;
+    font-size: 36px;
 }
 
 .search-header {
@@ -15,13 +21,9 @@
     font-size: 18px;
 }
 
-.search-header {
-    font-family: 'Sedgwick Ave', cursive;
-}
 
-.navbar {
-    font-family: 'Sedgwick Ave', cursive;
-}
+
+
 
 
 

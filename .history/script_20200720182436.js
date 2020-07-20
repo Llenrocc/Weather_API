@@ -1,17 +1,17 @@
 // Creating all variables/Elements
 
 function initPage() {
-    
-    const inputEl = document.getElementById("city-input");
-    const searchEl = document.getElementById("search-button");
-    const clearEl = document.getElementById("clear-history");
-    const nameEl = document.getElementById("city-name");
-    const currentPicEl = document.getElementById("current-pic");
-    const currentTempEl = document.getElementById("temperature");
-    const currentHumidityEl = document.getElementById("humidity");4;
-    const currentWindEl = document.getElementById("wind-speed");
-    const currentUVEl = document.getElementById("UV-index");
-    const historyEl = document.getElementById("history");
+
+    var inputEl = document.getElementById("city-input");
+    var searchEl = document.getElementById("search-button");
+    var clearEl = document.getElementById("clear-history");
+    var nameEl = document.getElementById("city-name");
+    var currentPicEl = document.getElementById("current-pic");
+    var currentTempEl = document.getElementById("temperature");
+    var currentHumidityEl = document.getElementById("humidity");4
+    var currentWindEl = document.getElementById("wind-speed");
+    var currentUVEl = document.getElementById("UV-index");
+    var historyEl = document.getElementById("history");
 
     // Save searches to local storage
     let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
@@ -82,7 +82,7 @@ function initPage() {
     const forecastEls = document.querySelectorAll(".forecast");
     for (i = 0; i < forecastEls.length; i++) {
         forecastEls[i].innerHTML = "";
-        const forecastIndex = i * 8 + 4;
+        const forecastIndex = i*8 + 4;
         const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
         const forecastDay = forecastDate.getDate();
         const forecastMonth = forecastDate.getMonth() + 1;
@@ -121,11 +121,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-});
+})
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        });
+        })
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);

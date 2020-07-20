@@ -1,7 +1,8 @@
 // Creating all variables/Elements
 
 function initPage() {
-    
+
+    const axios = require('axios').default;
     const inputEl = document.getElementById("city-input");
     const searchEl = document.getElementById("search-button");
     const clearEl = document.getElementById("clear-history");

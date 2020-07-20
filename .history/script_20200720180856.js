@@ -1,14 +1,14 @@
 // Creating all variables/Elements
 
-function initPage() {
-    
+function initPage () {
+
     const inputEl = document.getElementById("city-input");
     const searchEl = document.getElementById("search-button");
     const clearEl = document.getElementById("clear-history");
     const nameEl = document.getElementById("city-name");
     const currentPicEl = document.getElementById("current-pic");
     const currentTempEl = document.getElementById("temperature");
-    const currentHumidityEl = document.getElementById("humidity");4;
+    const currentHumidityEl = document.getElementById("humidity");4
     const currentWindEl = document.getElementById("wind-speed");
     const currentUVEl = document.getElementById("UV-index");
     const historyEl = document.getElementById("history");
@@ -44,7 +44,7 @@ function initPage() {
     // weather icon depending on the conditions
     let weatherPic = response.data.weather[0].icon;
 
-    currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+    currentPicEl.setAttribute("src", "https://api.openweathermap.org/img/wn/" + weatherPic + "@2x.png");
 
     // Alt Description if the image does not appear 
     currentPicEl.setAttribute("alt", response.data.weather[0].description);
@@ -82,7 +82,7 @@ function initPage() {
     const forecastEls = document.querySelectorAll(".forecast");
     for (i = 0; i < forecastEls.length; i++) {
         forecastEls[i].innerHTML = "";
-        const forecastIndex = i * 8 + 4;
+        const forecastIndex = i*8 + 4;
         const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
         const forecastDay = forecastDate.getDate();
         const forecastMonth = forecastDate.getMonth() + 1;
@@ -121,11 +121,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-});
+})
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        });
+        })
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);
