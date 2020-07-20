@@ -108,12 +108,10 @@ function initPage () {
         const forecastHumidityEl = document.createElement("p");
         forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
         forecastEls[i].append(forecastHumidityEl);
-        }
-     })
-    });
-}
-
-
+    }
+    })
+        })
+    }
 
 }
 
