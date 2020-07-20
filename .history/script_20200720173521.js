@@ -53,7 +53,7 @@ function initPage () {
 
     currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176";
     currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
-    currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+    currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " KPH";
 
     // Latitude and Longitude & append UV index to html
 
@@ -75,7 +75,7 @@ function initPage () {
     let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id" + cityID + "&appid" + APIKey;
     axios.get(forecastQueryURL)
     .then(function(response) {
-        
+        console.log(response);
 
     // Response - parse displays forecast for the next 5 days in a for loop - Append forecast to html
     
@@ -96,7 +96,7 @@ function initPage () {
         // Add img depending on weather - append to weather forecast element
 
         const forecastWeatherEl = document.createElement("img");
-        forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+        forecastWeatherEl.setAttribute("src", "https://openweathermap.org.img.wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
         forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
         forecastEls[i].append(forecastWeatherEl);
 
