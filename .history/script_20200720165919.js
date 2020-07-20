@@ -77,14 +77,9 @@ function initPage () {
     .then(function(response) {
         console.log(response);
 
-    // Response - parse displays forecast for the next 5 days in a for loop
+    // Response - parse displays forecast for the next 5 days
     
-    const forecastEls = document.querySelectorAll(".forecast");
-    for (i = 0; i < forecastEls.length; i++) {
-        forecastEls[i].innerHTML = "";
-        const forecastIndex = i*8 + 4;
-        const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-    }
+    
     })
         })
     }

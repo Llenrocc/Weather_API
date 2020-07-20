@@ -71,21 +71,7 @@ function initPage () {
 
     // Execute 5 Day forecast get request using saved city name
 
-    let cityID = response.data.id;
-    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id" + cityID + "&appid" + APIKey;
-    axios.get(forecastQueryURL)
-    .then(function(response) {
-        console.log(response);
-
-    // Response - parse displays forecast for the next 5 days in a for loop
     
-    const forecastEls = document.querySelectorAll(".forecast");
-    for (i = 0; i < forecastEls.length; i++) {
-        forecastEls[i].innerHTML = "";
-        const forecastIndex = i*8 + 4;
-        const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-    }
-    })
         })
     }
 
