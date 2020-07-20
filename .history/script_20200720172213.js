@@ -113,7 +113,7 @@ function initPage () {
     });
 }
 
-        // Adding event listener "click" to search  & clear button. Save searches to local storage - they will be displayed on screen. Clear past searches
+        // Adding event listener "click" to search  & clear button. Save searches to local storage - they will be displayed on screen. 
 
         searchEl.addEventListener("click", function() {
             const searchTerm = inputEl.value;
@@ -122,10 +122,7 @@ function initPage () {
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
 })
-        clearEl.addEventListener("click", function() {
-            searchHistory = [];
-            renderSearchHistory();
-        })
+        clearEl.addEventListener
 
 }
 
