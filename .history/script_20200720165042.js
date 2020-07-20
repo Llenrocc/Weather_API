@@ -55,7 +55,7 @@ function initPage () {
     currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
     currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " KPH";
 
-    // Latitude and Longitude & append UV index to html
+    // Latitude and Longitude & getting UV index to html
 
     let lat = response.data.coord.lat;
     let lon = response.data.coord.lon;
@@ -63,11 +63,8 @@ function initPage () {
     axios.get(UVQueryURL)
     .then(function(response) {
         let UVIndex = document.createElement("span");
-        UVIndex.setAttribute("class", "badge badge-danger");
-        UVIndex.innerHTML = response.data[0].value;
-        currentUVEl.innerHTML = "UV Index: ";
-        currentUVEl.append(UVIndex);
-    });
+        UVIndex.setAttribute()
+    })
 
         })
     }
