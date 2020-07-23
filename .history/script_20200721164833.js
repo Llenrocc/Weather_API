@@ -2,6 +2,7 @@
 
 function initPage() {
     
+    const axios = require('axios');
     const inputEl = document.getElementById("city-input");
     const searchEl = document.getElementById("search-button");
     const clearEl = document.getElementById("clear-history");

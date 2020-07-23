@@ -1,4 +1,4 @@
-// Creating Elements
+// Creating all variables/Elements
 
 function initPage() {
     
