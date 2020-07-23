@@ -72,7 +72,7 @@ function initPage() {
     // Execute 5 Day forecast get request using saved city name
 
     let cityID = response.data.id;
-    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityID + "&appid" + APIKey;
+    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id" + cityID + "&appid" + APIKey;
     axios.get(forecastQueryURL)
     .then(function(response) {
         

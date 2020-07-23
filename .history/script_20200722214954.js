@@ -44,7 +44,7 @@ function initPage() {
     // weather icon depending on the conditions
     let weatherPic = response.data.weather[0].icon;
 
-    currentPicEl.setAttribute("src", " http://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+    currentPicEl.setAttribute("src", " http://openweathermap.org/img/wn/10d" + weatherPic + "@2x.png");
 
     // Alt Description if the image does not appear 
     currentPicEl.setAttribute("alt", response.data.weather[0].description);
@@ -72,7 +72,7 @@ function initPage() {
     // Execute 5 Day forecast get request using saved city name
 
     let cityID = response.data.id;
-    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityID + "&appid" + APIKey;
+    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id" + cityID + "&appid" + APIKey;
     axios.get(forecastQueryURL)
     .then(function(response) {
         
