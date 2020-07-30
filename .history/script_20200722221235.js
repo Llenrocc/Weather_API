@@ -71,46 +71,78 @@ function initPage() {
 
     // Execute 5 Day forecast get request using saved city name
 
+    //  Using saved city name, execute a 5-day forecast get request from open weather map api
     let cityID = response.data.id;
-    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityID + "&appid" + APIKey;
+    let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
     axios.get(forecastQueryURL)
-    .then(function(response) {
-        
+    .then(function(response){
+//  Parse response to display forecast for next 5 days underneath current conditions
+        console.log(response);
+        const forecastEls = document.querySelectorAll(".forecast");
+        for (i=0; i<forecastEls.length; i++) {
+            forecastEls[i].innerHTML = "";
+            const forecastIndex = i*8 + 4;
+            const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+            const forecastDay = forecastDate.getDate();
+            const forecastMonth = forecastDate.getMonth() + 1;
+            const forecastYear = forecastDate.getFullYear();
+            const forecastDateEl = document.createElement("p");
+            forecastDateEl.setAttribute("class","mt-3 mb-0 forecast-date");
+            forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+            forecastEls[i].append(forecastDateEl);
+            const forecastWeatherEl = document.createElement("img");
+            forecastWeatherEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+            forecastWeatherEl.setAttribute("alt",response.data.list[forecastIndex].weather[0].description);
+            forecastEls[i].append(forecastWeatherEl);
+            const forecastTempEl = document.createElement("p");
+            forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
+            forecastEls[i].append(forecastTempEl);
+            const forecastHumidityEl = document.createElement("p");
+            forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+            forecastEls[i].append(forecastHumidityEl);
+            }
+        })
+    });  
+}
+    
+    
+    
+    
 
-    // Response - parse displays forecast for the next 5 days in a for loop - Append forecast to html
-    console.log(response);
-    const forecastEls = document.querySelectorAll(".forecast");
-    for (i = 0; i < forecastEls.length; i++) {
-        forecastEls[i].innerHTML = "";
-        const forecastIndex = i * 8 + 4;
-        const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
-        const forecastDay = forecastDate.getDate();
-        const forecastMonth = forecastDate.getMonth() + 1;
-        const forecastYear = forecastDate.getFullYear();
-        const forecastDateEl = document.createElement("p");
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-        forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
-        forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
-        forecastEls[i].append(forecastDateEl);
+    
+    
+    
 
-        // Add img depending on weather - append to weather forecast element
+    
 
-        const forecastWeatherEl = document.createElement("img");
-        forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-        forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
-        forecastEls[i].append(forecastWeatherEl);
+    
+    .png");
+    
+    
 
-        // Adding forecast Temp and Humidity
-        const forecastTempEl = document.createElement("p");
-        forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176";
-        forecastEls[i].append(forecastTempEl);
-        
-        const forecastHumidityEl = document.createElement("p");
-        forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
-        forecastEls[i].append(forecastHumidityEl);
-        }
-     })
-    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
         // Adding event listener "click" to search  & clear button. Save searches to local storage - they will be displayed on screen. Clear past searches
@@ -121,11 +153,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-})
+});
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        })
+        });
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);

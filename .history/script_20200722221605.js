@@ -121,11 +121,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-})
+});
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        })
+        });
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);
