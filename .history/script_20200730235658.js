@@ -50,7 +50,7 @@ function initPage() {
 
     // Getting current conditions - temp, wind-speed, UV index
 
-    currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
+    currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176";
     currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
     currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
@@ -77,7 +77,7 @@ function initPage() {
         
 
     // Response - parse displays forecast for the next 5 days in a for loop - Append forecast to html
-    //console.log(response);
+    console.log(response);
     const forecastEls = document.querySelectorAll(".forecast");
     for (i = 0; i < forecastEls.length; i++) {
         forecastEls[i].innerHTML = "";
@@ -101,14 +101,14 @@ function initPage() {
 
         // Adding forecast Temp and Humidity
         const forecastTempEl = document.createElement("p");
-        forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
+        forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176";
         forecastEls[i].append(forecastTempEl);
         
         const forecastHumidityEl = document.createElement("p");
         forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
         forecastEls[i].append(forecastHumidityEl);
         }
-     })
+     });
     });
 }
 
@@ -120,11 +120,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-})
+});
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        })
+        });
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);

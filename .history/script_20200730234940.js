@@ -30,9 +30,10 @@ function initPage() {
         .then(function(response) {
             //console.log(response);
 
-    // adding current date by pulling from api response
+    // Response has to be parsed so it displays current weather conditions 
     
     const currentDate = new Date(response.data.dt*1000);
+    //console.log(currentDate);
     const day = currentDate.getDate();
     const month = currentDate.getMonth() + 1;
     const year = currentDate.getFullYear();
@@ -43,14 +44,14 @@ function initPage() {
     // weather icon depending on the conditions
     let weatherPic = response.data.weather[0].icon;
 
-    currentPicEl.setAttribute("src", "http://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+    currentPicEl.setAttribute("src", " http://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
 
     // Alt Description if the image does not appear 
     currentPicEl.setAttribute("alt", response.data.weather[0].description);
 
     // Getting current conditions - temp, wind-speed, UV index
 
-    currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176F";
+    currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + " &#176";
     currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
     currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
@@ -77,7 +78,7 @@ function initPage() {
         
 
     // Response - parse displays forecast for the next 5 days in a for loop - Append forecast to html
-    //console.log(response);
+    console.log(response);
     const forecastEls = document.querySelectorAll(".forecast");
     for (i = 0; i < forecastEls.length; i++) {
         forecastEls[i].innerHTML = "";
@@ -101,14 +102,14 @@ function initPage() {
 
         // Adding forecast Temp and Humidity
         const forecastTempEl = document.createElement("p");
-        forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
+        forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176";
         forecastEls[i].append(forecastTempEl);
         
         const forecastHumidityEl = document.createElement("p");
         forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
         forecastEls[i].append(forecastHumidityEl);
         }
-     })
+     });
     });
 }
 
@@ -120,11 +121,11 @@ function initPage() {
             searchHistory.push(searchTerm);
             localStorage.setItem("search", JSON.stringify(searchHistory));
             renderSearchHistory();
-})
+});
         clearEl.addEventListener("click", function() {
             searchHistory = [];
             renderSearchHistory();
-        })
+        });
         
         function k2f(K) {
             return Math.floor((K - 273.15) *1.8 +32);
