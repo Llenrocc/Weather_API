@@ -1,8 +1,5 @@
-body {
-    width: 100%;
-    height: 100%;
-    background-color: #a3c2eb;
-    font-family: 'Sedgwick Ave', cursive;
+.container {
+    background: url("Assets/light-sea-dawn-landscape-33545.jpg");
     
 }
 
@@ -11,7 +8,7 @@ body {
 }
 
 .navbar {
-    background-color: #a3c2eb;
+    background-color: dodgerblue;
 }
 
 .search-header {
@@ -33,7 +30,6 @@ body {
 
 .navbar {
     font-family: 'Sedgwick Ave', cursive;
-    color: black;
 }
 
 

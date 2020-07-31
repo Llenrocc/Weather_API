@@ -1,8 +1,9 @@
 body {
     width: 100%;
     height: 100%;
-    background-color: #a3c2eb;
-    font-family: 'Sedgwick Ave', cursive;
+    background-image: url("Assets/sea-of-clouds-sunrise-wallpaper-2086748.jpg");
+    background-size: 100% 100%;
+    background: cover;
     
 }
 
@@ -11,7 +12,7 @@ body {
 }
 
 .navbar {
-    background-color: #a3c2eb;
+    background-color: dodgerblue;
 }
 
 .search-header {
@@ -33,7 +34,6 @@ body {
 
 .navbar {
     font-family: 'Sedgwick Ave', cursive;
-    color: black;
 }
 
 
